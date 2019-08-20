@@ -12,6 +12,7 @@
       فارسروید یک منبع برای دانلود بازی ها و برنامه های اندروید است.
    </p>
 
+   <br>
 
    <h1>
       این برنامه چکار میکند؟
@@ -22,6 +23,8 @@
       طراحی شده است تا بر روی دستگاه های اندرویدی خود دسترسی راحت تری به این سایت داشته باشید.
    </p>
 
+   <br>
+
    <h1>
       تصاویر
    </h1>
@@ -30,6 +33,8 @@
    <img src="site/images/img2.png" width="120" height="auto" style="margin: .5rem">
    <img src="site/images/img3.png" width="120" height="auto" style="margin: .5rem">
    <img src="site/images/img4.png" width="120" height="auto" style="margin: .5rem">
+
+   <br>
 
    <h1>
       دانلود اپ
