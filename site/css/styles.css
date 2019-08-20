@@ -132,12 +132,12 @@ body {
    position: fixed;
    left: 0;
    top: 0;
-   background: #FFF url(../images/loading_icon.gif) no-repeat center center;
+   background: #FFF url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/loading_icon.gif) no-repeat center center;
 }
 
 /* `Header image */
 .header {
-   background: url(../images/header_background.jpg) center top;
+   background: url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/header_background.jpg) center top;
    height: 600px;
    display: none
 }
@@ -146,14 +146,14 @@ body {
    height: 600px;
    width: 491px;
    float: left;
-   background: url(../images/hand_iphone.png) no-repeat left bottom;
+   background: url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/hand_iphone.png) no-repeat left bottom;
    display: none
 }
 
 .footer_left {
    height: 600px;
    width: 491px;
-   background: url(../images/hand_iphone.png) no-repeat left bottom;
+   background: url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/hand_iphone.png) no-repeat left bottom;
    display: none
 }
 
@@ -172,7 +172,7 @@ body {
 }
 
 .app_icon {
-   background: url(../images/ic_launcher.png) no-repeat;
+   background: url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/ic_launcher.png) no-repeat;
    height: 96px;
    width: 96px
 }
@@ -282,7 +282,7 @@ a.appstore_button {
    float: left;
    height: 72px;
    width: 218px;
-   background: url(../images/appstore_button.png) no-repeat 0 0;
+   background: url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/appstore_button.png) no-repeat 0 0;
    margin-right: 15px
 }
 
@@ -290,7 +290,7 @@ a.google_play_button {
    float: left;
    height: 72px;
    width: 188px;
-   background: url(../images/google_play_button.png) no-repeat 0 0;
+   background: url(https://github.com/shahab-yousefi/farsroid/raw/master/site/images/google_play_button.png) no-repeat 0 0;
    display: block
 }
 
