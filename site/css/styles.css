@@ -1,0 +1,580 @@
+/* Reset */
+html, body, div, span, object, iframe, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+   background: transparent;
+   border: 0;
+   font-size: 100%;
+   margin: 0;
+   outline: 0;
+   padding: 0;
+   vertical-align: baseline
+}
+
+body {
+   line-height: 1
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+   display: block
+}
+
+blockquote, q {
+   quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+   content: none
+}
+
+a {
+   background: transparent;
+   font-size: 100%;
+   margin: 0;
+   padding: 0;
+   vertical-align: baseline
+}
+
+ins {
+   background-color: #ff9;
+   color: #000;
+   text-decoration: none
+}
+
+mark {
+   background-color: #ff9;
+   color: #000;
+   font-style: italic;
+   font-weight: 700
+}
+
+del {
+   text-decoration: line-through
+}
+
+abbr[title], dfn[title] {
+   border-bottom: 1px dotted;
+   cursor: help
+}
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0
+}
+
+hr {
+   border: 0;
+   border-top: 1px solid #ccc;
+   display: block;
+   height: 1px;
+   margin: 1em 0;
+   padding: 0
+}
+
+input, select {
+   vertical-align: middle
+}
+
+/* share URL: http://www.20script.ir */
+
+/* General */
+::selection {
+   background: #000;
+   color: #FFF
+}
+
+::-moz-selection {
+   background-color: #000;
+   color: #FFF
+}
+
+::-moz-focus-inner {
+   border: 0;
+   margin: 0;
+   padding: 0
+}
+
+a, a:visited {
+   color: #2e2e2e;
+   outline: none;
+   text-decoration: none;
+   -webkit-transition: color 0.5s ease-in
+}
+
+a:hover {
+   color: #666;
+   outline: none;
+   text-decoration: none;
+   -webkit-transition: color 0.5s ease-in
+}
+
+h1, h2, h3 {
+   font-family: "Samim", sans-serif;
+   -webkit-font-smoothing: antialiased;
+   border: 0;
+   margin: 0;
+   padding: 0
+}
+
+body {
+   -webkit-font-smoothing: antialiased;
+   color: #2D2D2D;
+   font-family: "Samim", sans-serif;
+   line-height: 1;
+   word-wrap: break-word;
+   overflow-x: hidden;
+   background: #FFF none;
+   margin: 0;
+   padding: 0;
+}
+
+.loading {
+   height: 100%;
+   width: 100%;
+   position: fixed;
+   left: 0;
+   top: 0;
+   background: #FFF url(../images/loading_icon.gif) no-repeat center center;
+}
+
+/* `Header image */
+.header {
+   background: url(../images/header_background.jpg) center top;
+   height: 600px;
+   display: none
+}
+
+.header_left {
+   height: 600px;
+   width: 491px;
+   float: left;
+   background: url(../images/hand_iphone.png) no-repeat left bottom;
+   display: none
+}
+
+.footer_left {
+   height: 600px;
+   width: 491px;
+   background: url(../images/hand_iphone.png) no-repeat left bottom;
+   display: none
+}
+
+.header_right {
+   height: 430px;
+   width: 500px;
+   float: right;
+   padding-top: 170px;
+   display: none
+}
+
+.inner_wrapper {
+   width: 1000px;
+   margin-right: auto;
+   margin-left: auto
+}
+
+.app_icon {
+   background: url(../images/ic_launcher.png) no-repeat;
+   height: 96px;
+   width: 96px
+}
+
+.inner_wrapper .header_right h1 {
+   font-weight: 200;
+   color: #443f2b;
+   padding-top: 10px;
+   padding-bottom: 10px
+}
+
+.inner_wrapper .header_right p {
+   color: #5f5941;
+   line-height: 32px;
+   font-size: 16px;
+   margin-bottom: 20px
+}
+
+.share_support_section {
+   background-color: #FFF;
+   clear: both;
+   width: 100%;
+   border-bottom: 1px solid #E2E2E2;
+   float: left;
+   display: none;
+   padding: 35px 0 25px
+}
+
+.share_buttons {
+   float: left;
+   width: 500px;
+   height: 35px;
+   padding-top: 14px
+}
+
+.inner_wrapper .support_text {
+   float: right;
+   width: 500px
+}
+
+.share_support_section .inner_wrapper .support_text p {
+   text-align: right;
+   font-size: 16px;
+   color: #A8A8A8;
+   line-height: 46px
+}
+
+.support_text p a {
+   color: #555
+}
+
+.footer .inner_wrapper .footer_links {
+   font-size: 12px;
+   color: #a5a5a5;
+   margin-top: 40px;
+   clear: both;
+   float: left;
+   width: 100%
+}
+
+.footer .inner_wrapper .footer_links a {
+   color: #a5a5a5;
+   margin-left: 30px
+}
+
+.footer .inner_wrapper .made_by {
+   font-size: 12px;
+   padding-top: 0;
+   padding-bottom: 20px;
+   color: #a5a5a5;
+   line-height: 30px;
+   clear: both;
+   float: left
+}
+
+.footer .inner_wrapper .footer_links a:hover {
+   color: #6B6B6B
+}
+
+.footer {
+   display: none;
+   float: left;
+   width: 100%
+}
+
+.social_button {
+   float: left;
+   margin-right: 25px;
+   width: 65px
+}
+
+.social_button.twitter {
+   margin-right: 40px
+}
+
+.footer .inner_wrapper .made_by a {
+   font-weight: 700;
+   color: #929292
+}
+
+.support_text p a:hover, .footer .inner_wrapper .made_by a:hover {
+   color: #282828
+}
+
+a.appstore_button {
+   display: block;
+   float: left;
+   height: 72px;
+   width: 218px;
+   background: url(../images/appstore_button.png) no-repeat 0 0;
+   margin-right: 15px
+}
+
+a.google_play_button {
+   float: left;
+   height: 72px;
+   width: 188px;
+   background: url(../images/google_play_button.png) no-repeat 0 0;
+   display: block
+}
+
+a.appstore_button:active, a.google_play_button:active {
+   height: 73px;
+   background-position: 0 1px
+}
+
+/* Animations */
+body {
+   -webkit-backface-visibility: hidden
+}
+
+.animated {
+   -webkit-animation-duration: 1s;
+   -moz-animation-duration: 1s;
+   -o-animation-duration: 1s;
+   animation-duration: 1s;
+   -webkit-animation-fill-mode: both;
+   -moz-animation-fill-mode: both;
+   -o-animation-fill-mode: both;
+   animation-fill-mode: both
+}
+
+.animated.hinge {
+   -webkit-animation-duration: 2s;
+   -moz-animation-duration: 2s;
+   -o-animation-duration: 2s;
+   animation-duration: 2s
+}
+
+@-webkit-keyframes fadeInUp {
+   0% {
+      opacity: 0;
+      -webkit-transform: translateY(20px)
+   }
+   100% {
+      opacity: 1;
+      -webkit-transform: translateY(0)
+   }
+}
+
+@-moz-keyframes fadeInUp {
+   0% {
+      opacity: 0;
+      -moz-transform: translateY(20px)
+   }
+   100% {
+      opacity: 1;
+      -moz-transform: translateY(0)
+   }
+}
+
+@-o-keyframes fadeInUp {
+   0% {
+      opacity: 0;
+      -o-transform: translateY(20px)
+   }
+   100% {
+      opacity: 1;
+      -o-transform: translateY(0)
+   }
+}
+
+@keyframes fadeInUp {
+   0% {
+      opacity: 0;
+      transform: translateY(20px)
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0)
+   }
+}
+
+.fadeInUp {
+   -webkit-animation-name: fadeInUp;
+   -moz-animation-name: fadeInUp;
+   -o-animation-name: fadeInUp;
+   animation-name: fadeInUp
+}
+
+@-webkit-keyframes wobble {
+   0% {
+      -webkit-transform: translateX(0%)
+   }
+   15% {
+      -webkit-transform: translateX(-5%) rotate(-5deg)
+   }
+   30% {
+      -webkit-transform: translateX(20%) rotate(3deg)
+   }
+   45% {
+      -webkit-transform: translateX(-5%) rotate(-3deg)
+   }
+   60% {
+      -webkit-transform: translateX(10%) rotate(2deg)
+   }
+   75% {
+      -webkit-transform: translateX(-5%) rotate(-1deg)
+   }
+   100% {
+      -webkit-transform: translateX(0%)
+   }
+}
+
+@-moz-keyframes wobble {
+   0% {
+      -moz-transform: translateX(0%)
+   }
+   15% {
+      -moz-transform: translateX(-5%) rotate(-5deg)
+   }
+   30% {
+      -moz-transform: translateX(20%) rotate(3deg)
+   }
+   45% {
+      -moz-transform: translateX(-5%) rotate(-3deg)
+   }
+   60% {
+      -moz-transform: translateX(10%) rotate(2deg)
+   }
+   75% {
+      -moz-transform: translateX(-5%) rotate(-1deg)
+   }
+   100% {
+      -moz-transform: translateX(0%)
+   }
+}
+
+@-o-keyframes wobble {
+   0% {
+      -o-transform: translateX(0%)
+   }
+   15% {
+      -o-transform: translateX(-5%) rotate(-5deg)
+   }
+   30% {
+      -o-transform: translateX(20%) rotate(3deg)
+   }
+   45% {
+      -o-transform: translateX(-5%) rotate(-3deg)
+   }
+   60% {
+      -o-transform: translateX(10%) rotate(2deg)
+   }
+   75% {
+      -o-transform: translateX(-5%) rotate(-1deg)
+   }
+   100% {
+      -o-transform: translateX(0%)
+   }
+}
+
+@keyframes wobble {
+   0% {
+      transform: translateX(0%)
+   }
+   15% {
+      transform: translateX(-5%) rotate(-5deg)
+   }
+   30% {
+      transform: translateX(20%) rotate(3deg)
+   }
+   45% {
+      transform: translateX(-5%) rotate(-3deg)
+   }
+   60% {
+      transform: translateX(10%) rotate(2deg)
+   }
+   75% {
+      transform: translateX(-5%) rotate(-1deg)
+   }
+   100% {
+      transform: translateX(0%)
+   }
+}
+
+.wobble {
+   -webkit-animation-name: wobble;
+   -moz-animation-name: wobble;
+   -o-animation-name: wobble;
+   animation-name: wobble
+}
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+   .header {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover
+   }
+
+   .header_left {
+      background-size: 100%;
+      width: 370px
+   }
+
+   .inner_wrapper {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0
+   }
+
+   .inner_wrapper .support_text {
+      float: left;
+      width: 100%
+   }
+
+   .share_buttons {
+      width: 100%
+   }
+
+   .share_support_section {
+      width: 100%;
+      float: left;
+      padding: 35px 0 25px
+   }
+
+   .share_support_section .inner_wrapper .support_text p {
+      text-align: left;
+      padding-left: 25px
+   }
+
+   .social_button {
+      margin-right: 0;
+      margin-left: 25px
+   }
+
+   .footer .inner_wrapper .footer_links, .footer .inner_wrapper .made_by {
+      text-indent: 25px
+   }
+
+   .social_button.twitter {
+      margin-right: 20px
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .footer_left {
+      display: block !important;
+   }
+
+   .header_left {
+      display: none;
+      position: absolute;
+      top: -1000px
+   }
+
+   .header_right {
+      height: 430px;
+      width: 90%;
+      float: right;
+      padding: 170px 5% 0
+   }
+}
+
+@media screen and (max-width: 495px) {
+   .header_right {
+      padding-top: 26%
+   }
+
+   a.google_play_button {
+      margin-top: 20px
+   }
+}
+
+@media screen and (max-width: 320px) {
+   .social_button.twitter {
+      margin-right: 20px
+   }
+
+   .footer .inner_wrapper .footer_links a {
+      color: #a5a5a5;
+      margin-left: 15px
+   }
+}
+
+@media screen and (min-width: 1800px) {
+   .header {
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover
+   }
+}
