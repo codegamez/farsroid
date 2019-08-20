@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        android:background="@android:color/white"
+        tools:scrollY="0dp"
+        tools:showIn="@layout/activity_app_page"
+        tools:context=".AppPageActivity">
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/aap_iconContainer"
+            android:layout_width="@dimen/app_icon_size"
+            android:layout_height="@dimen/app_icon_size"
+            android:layout_margin="@dimen/space_lg"
+            app:cardCornerRadius="@dimen/space_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <lib.codegames.widget.ImageViewCG
+                android:id="@+id/aap_icon"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:srcCompat="@drawable/placeholder"
+                app:cg_imageMode="IMAGE_SQUARE"
+                app:cg_borderSize="0dp"
+                app:cg_backgroundColor="@color/color_transparent"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/aap_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:textStyle="bold"
+            tools:text="نام"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/space_lg"
+            android:layout_marginEnd="@dimen/space_lg"
+            android:layout_marginStart="@dimen/space_lg"
+            android:textColor="@color/color_material_black"
+            app:layout_constraintStart_toEndOf="@id/aap_iconContainer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/aap_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:layout_marginTop="@dimen/space_md"
+            android:textStyle="bold"
+            tools:text="دسته"
+            android:layout_marginEnd="@dimen/space_lg"
+            android:layout_marginStart="@dimen/space_lg"
+            android:textColor="@color/color_material_green_500"
+            app:layout_constraintStart_toEndOf="@id/aap_iconContainer"
+            app:layout_constraintTop_toBottomOf="@id/aap_name"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/aap_install"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_lg"
+            android:textColor="@color/color_material_white"
+            android:text="@string/install"
+            app:backgroundTint="@color/color_material_green_500"
+            app:layout_constraintTop_toBottomOf="@id/aap_iconContainer"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/color_material_blue_grey_100"
+            app:layout_constraintTop_toBottomOf="@id/aap_install"/>
+
+    <HorizontalScrollView
+            android:id="@+id/infoContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:scrollbars="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:layout_margin="@dimen/space_lg"
+                    android:id="@+id/aap_likeCount"
+                    android:layout_width="@dimen/app_page_info_size"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:drawableTop="@drawable/ic_favorite"
+                    android:drawablePadding="@dimen/space_sm"
+                    android:textSize="@dimen/font_xs"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/color_material_grey_700"
+                    tools:text="23"/>
+
+
+            <TextView
+                    android:id="@+id/aap_version"
+                    android:layout_margin="@dimen/space_lg"
+                    android:layout_width="@dimen/app_page_info_size"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_adjust_black_24dp"
+                    android:drawablePadding="@dimen/space_sm"
+                    android:textSize="@dimen/font_xs"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/color_material_grey_700"
+                    tools:text="1.2.4"/>
+
+            <TextView
+                    android:id="@+id/aap_comment"
+                    android:layout_margin="@dimen/space_lg"
+                    android:layout_width="@dimen/app_page_info_size"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_xs"
+                    android:drawableTop="@drawable/ic_comment_black_24dp"
+                    android:drawablePadding="@dimen/space_sm"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/color_material_grey_700"
+                    tools:text="32"/>
+
+            <TextView
+                    android:id="@+id/aap_lastUpdate"
+                    android:layout_margin="@dimen/space_lg"
+                    android:layout_width="@dimen/app_page_info_size"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_xs"
+                    android:drawableTop="@drawable/ic_access_time_black_24dp"
+                    android:drawablePadding="@dimen/space_sm"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:textColor="@color/color_material_grey_700"
+                    tools:text="شنبه ۰۵ مرداد ۱۳۹۸"/>
+
+            <TextView
+                    android:id="@+id/aap_download"
+                    android:layout_margin="@dimen/space_lg"
+                    android:layout_width="@dimen/app_page_info_size"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_xs"
+                    android:drawableTop="@drawable/ic_file_download_black_24dp"
+                    android:drawablePadding="@dimen/space_sm"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/color_material_grey_700"
+                    tools:text="29"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/color_material_blue_grey_100"
+            app:layout_constraintTop_toBottomOf="@id/infoContainer"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/aap_slider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/app_page_slider_size"
+            android:layout_marginTop="@dimen/space_lg"
+            android:layoutDirection="ltr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+            android:id="@+id/aap_content_less"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_lg"
+            android:gravity="center"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:textDirection="rtl"
+            tools:text="sdssdf\ndfdfes\nweedw\nvfdsdf\nnvfdsdf"
+            android:foreground="@drawable/content_fade_gradiant"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aap_slider"/>
+
+    <TextView
+            android:id="@+id/aap_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_material_green_500"
+            android:text="@string/more"
+            android:textStyle="bold"
+            android:padding="@dimen/space_lg"
+            app:layout_constraintTop_toBottomOf="@id/aap_content_less"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/color_material_blue_grey_100"
+            app:layout_constraintTop_toBottomOf="@id/aap_more"/>
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/aap_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:rating="3"
+            android:layoutDirection="ltr"
+            style="@style/Base.Widget.AppCompat.RatingBar"
+            app:layout_constraintTop_toBottomOf="@id/divider3"/>
+
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/aap_downloadBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_lg"
+            android:layout_marginStart="@dimen/space_lg"
+            android:layout_marginEnd="@dimen/space_lg"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="@dimen/space_md"
+            android:layout_marginBottom="@dimen/space_lg"
+            app:strokeColor="@color/color_material_grey_300"
+            app:strokeWidth="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aap_rate"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/space_lg"
+                        app:srcCompat="@drawable/ic_file_download_black_24dp"
+                        app:tint="@color/color_material_black"
+                        android:adjustViewBounds="true"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="@dimen/space_lg"
+                        android:textColor="@color/color_material_black"
+                        android:textStyle="bold"
+                        android:text="@string/download_time"/>
+
+                <ImageView
+                        android:id="@+id/aap_downloadHelp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/space_lg"
+                        style="?actionButtonStyle"
+                        app:srcCompat="@drawable/ic_info_black_24dp"
+                        app:tint="@color/color_material_orange_500"
+                        android:adjustViewBounds="true"/>
+
+            </LinearLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/color_material_blue_grey_100"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/aap_downloadRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

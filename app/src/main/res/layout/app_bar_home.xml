@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/am_appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layoutDirection="rtl"
+            android:theme="@style/AppTheme.AppBarOverlay.Light">
+
+        <com.google.android.material.card.MaterialCardView
+                android:layout_margin="@dimen/space_md"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll"
+                app:cardCornerRadius="@dimen/space_md">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.tabs.TabLayout
+                android:id="@+id/am_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorColor="@color/color_material_white"
+                app:tabMode="fixed"
+                app:tabTextColor="@color/color_material_white"
+                app:tabGravity="fill">
+
+            <com.google.android.material.tabs.TabItem
+                    android:id="@+id/am_tabGames"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/games"/>
+
+            <com.google.android.material.tabs.TabItem
+                    android:id="@+id/am_tabApps"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/apps"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_home"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">فارسروید</string>
+    <string name="title_activity_app_page">AppPageActivity</string>
+    <string name="search_in_farsroid">جستجو در فارسروید</string>
+    <string name="games">بازی ها</string>
+    <string name="apps">برنامه ها</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="newest">جدیدترین ها</string>
+    <string name="more">بیشتر</string>
+    <string name="title_activity_app_list">AppListActivity</string>
+    <string name="install">نصب</string>
+    <string name="categories">دسته ها</string>
+    <string name="title_activity_category_list">CategoryListActivity</string>
+    <string name="details">جزئیات</string>
+    <string name="search">جستجو</string>
+    <string name="download_time">وقــت دانــلود رســید</string>
+    <string name="most_viewed">پر دانلود ترین ها</string>
+    <string name="bests">برترین ها</string>
+    <string name="processor">پردازنده</string>
+    <string name="graphic">گرافیک</string>
+    <string name="your_phone_spec">مشخصات دستگاه شما</string>
+    <string name="best_apps">برترین برنامه ها</string>
+    <string name="best_games">برترین بازی ها</string>
+    <string name="most_downloaded_apps">پر دانلود ترین برنامه ها</string>
+    <string name="most_downloaded_games">پر دانلود ترین بازی ها</string>
+    <string name="suggestion">پیشنهادی</string>
+    <string name="file_link_copied">لینک فایل کپی شد</string>
+    <string name="try_again">تلاش دوباره</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="last_seen">آخرین بازدید ها</string>
+    <string name="about">درباره</string>
+</resources>
