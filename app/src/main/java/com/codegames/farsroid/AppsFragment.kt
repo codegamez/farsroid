@@ -1,10 +1,12 @@
 package com.codegames.farsroid
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -86,11 +88,17 @@ class AppsFragment : Fragment(), ToolbarListener {
                 val adapter = AppAdapter(programList, R.layout.item_app, coroutineScope)
                 adapter.isPageable = false
 
-                adapter.onClick = {
+                adapter.onClick = { app, holder ->
                     Intent(context, AppPageActivity::class.java).apply {
-                        putExtra("url", it.link)
-                        putExtra("name", it.name)
-                        startActivity(this)
+                        putExtra("url", app.link)
+                        putExtra("name", app.name)
+                        putExtra("imageUrl", app.imageUrl)
+                        startActivity(
+                            this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                context as Activity,
+                                holder.iconContainer!!, "app_icon"
+                            ).toBundle()
+                        )
                     }
                 }
 
@@ -143,7 +151,7 @@ class AppsFragment : Fragment(), ToolbarListener {
 
             val html = database.pageDao().getIfUpdated(FarsroidApi.SUGGESTED_APPS)?.let {
                 Jsoup.parse(it.data)
-            } ?:try {
+            } ?: try {
                 service.suggestedApps().execute().document().apply {
                     database.pageDao().put(
                         Page(
@@ -165,11 +173,17 @@ class AppsFragment : Fragment(), ToolbarListener {
             val adapter = AppAdapter(apps, R.layout.item_app_5, coroutineScope)
             adapter.isPageable = false
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(context, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            context as Activity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 
@@ -212,7 +226,7 @@ class AppsFragment : Fragment(), ToolbarListener {
 
             val html = database.pageDao().getIfUpdated(FarsroidApi.MOST_DOWNLOADED_APPS)?.let {
                 Jsoup.parse(it.data)
-            } ?:try {
+            } ?: try {
                 service.mostDownloadedApps().execute().document().apply {
                     database.pageDao().put(
                         Page(
@@ -234,11 +248,17 @@ class AppsFragment : Fragment(), ToolbarListener {
             val adapter = AppAdapter(apps, R.layout.item_app_2, coroutineScope)
             adapter.isPageable = false
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(context, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            context as Activity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 
@@ -280,7 +300,7 @@ class AppsFragment : Fragment(), ToolbarListener {
 
             val html = database.pageDao().getIfUpdated(FarsroidApi.TOP_APPS)?.let {
                 Jsoup.parse(it.data)
-            } ?:try {
+            } ?: try {
                 service.topApps().execute().document().apply {
                     database.pageDao().put(
                         Page(
@@ -302,11 +322,17 @@ class AppsFragment : Fragment(), ToolbarListener {
             val adapter = AppAdapter(apps, R.layout.item_app_2, coroutineScope)
             adapter.isPageable = false
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(context, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            context as Activity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 

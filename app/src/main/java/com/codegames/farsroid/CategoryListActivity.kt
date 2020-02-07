@@ -74,6 +74,11 @@ class CategoryListActivity : AppCompatActivity(), CoroutineScope {
                     acl_progressBar.hide()
                 }
 
+                val myData = mutableListOf(
+                    "data 1",
+                    "data 2",
+                    "data 3"
+                )
 
             }
 

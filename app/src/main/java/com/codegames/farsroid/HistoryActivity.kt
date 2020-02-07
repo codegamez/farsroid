@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,11 +44,17 @@ class HistoryActivity : AppCompatActivity(), CoroutineScope {
             adapter = AppAdapter(mutableListOf(), R.layout.item_app_horizontal, this@HistoryActivity)
             adapter?.isPageable = false
 
-            adapter?.onClick = {
+            adapter?.onClick = { app, holder ->
                 Intent(this@HistoryActivity, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            this@HistoryActivity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 

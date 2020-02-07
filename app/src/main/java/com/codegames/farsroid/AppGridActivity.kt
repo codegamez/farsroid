@@ -1,5 +1,6 @@
 package com.codegames.farsroid
 
+import android.app.ActivityOptions
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -9,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.codegames.farsroid.adapter.AppAdapter
@@ -23,6 +25,7 @@ import com.codegames.farsroid.util.document
 import com.codegames.farsroid.util.now
 import kotlinx.android.synthetic.main.activity_app_grid.*
 import kotlinx.android.synthetic.main.content_app_grid.*
+import kotlinx.android.synthetic.main.content_app_page.*
 import kotlinx.coroutines.*
 import lib.codegames.debug.LogCG
 import org.jsoup.Jsoup
@@ -189,11 +192,17 @@ class AppGridActivity : AppCompatActivity(), CoroutineScope {
                 return@fetchData data
             }
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(this@AppGridActivity, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            this@AppGridActivity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 

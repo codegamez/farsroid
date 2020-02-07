@@ -27,14 +27,12 @@
             android:id="@+id/aap_scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            tools:visibility="visible"
+            android:visibility="visible"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <include layout="@layout/content_app_page"/>
 
     </androidx.core.widget.NestedScrollView>
-
 
     <LinearLayout
             android:id="@+id/aap_contentContainer"

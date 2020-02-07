@@ -25,6 +25,7 @@ object Parser {
             val version = it.selectFirst(".p_version span").html()
             val likeCount = it.selectFirst(".p_like .count").html()
             val content = it.selectFirst(".app_body p").html()
+                .replace(Regex("width:\\s?\\d+px;?"), "")
 
             val app = App(
                 title = title,
@@ -63,9 +64,13 @@ object Parser {
         val version = doc.selectFirst(".p_version span").html()
         val likeCount = doc.selectFirst(".p_like .count").html()
         val content = doc.selectFirst("#article_body").html()
+            .replace(Regex("width:\\s?\\d+px;?"), "")
         val contentLess =
             doc.selectFirst("#article_body p[style*='text-align: justify', style*='text-align:justify']")?.html()
-                ?: doc.selectFirst("#article_body p:not([style*='text-align: center'])")?.html() ?: content
+                ?.replace(Regex("width:\\s?\\d+px;?"), "")
+                ?: doc.selectFirst("#article_body p:not([style*='text-align: center'])")?.html()
+                    ?.replace(Regex("width:\\s?\\d+px;?"), "")
+                ?: content
 
         val categoryLink = doc.selectFirst(".p_category a").attr("href")
         val categoryName = doc.selectFirst(".p_category a").html()
@@ -154,6 +159,7 @@ object Parser {
                 .takeIf { it.isNotBlank() } ?: title.makeShort()
             val imageUrl = it.select(".thumb img").attr("src").trim()
             val contentLess = it.select("p.with_after").html().trim()
+                .replace(Regex("width:\\s?\\d+px;?"), "")
             val lastUpdate = it.select(".details li:nth-child(1)").html().removeTag("i").trim()
             val visitCount = it.select(".details li:nth-child(2)").html().removeTag("i").trim()
             val type = it.select(".type span:nth-child(1)").html().trim()
@@ -190,6 +196,7 @@ object Parser {
                 .takeIf { it.isNotBlank() } ?: title.makeShort()
             val imageUrl = it.select(".thumb img").attr("src").trim()
             val contentLess = it.select("p.with_after").html().trim()
+                .replace(Regex("width:\\s?\\d+px;?"), "")
             val lastUpdate = it.select(".details li:nth-child(1)").html().removeTag("i").trim()
             val visitCount = it.select(".details li:nth-child(2)").html().removeTag("i").trim()
             val type = it.select(".type span:nth-child(1)").html().trim()

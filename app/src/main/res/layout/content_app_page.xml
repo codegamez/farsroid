@@ -16,6 +16,7 @@
             android:layout_width="@dimen/app_icon_size"
             android:layout_height="@dimen/app_icon_size"
             android:layout_margin="@dimen/space_lg"
+            android:transitionName="app_icon"
             app:cardCornerRadius="@dimen/space_lg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

@@ -1,10 +1,12 @@
 package com.codegames.farsroid
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -86,11 +88,17 @@ class GamesFragment : Fragment(), ToolbarListener {
                 val adapter = AppAdapter(gameList, R.layout.item_app, coroutineScope)
                 adapter.isPageable = false
 
-                adapter.onClick = {
+                adapter.onClick = { app, holder ->
                     Intent(context, AppPageActivity::class.java).apply {
-                        putExtra("url", it.link)
-                        putExtra("name", it.name)
-                        startActivity(this)
+                        putExtra("url", app.link)
+                        putExtra("name", app.name)
+                        putExtra("imageUrl", app.imageUrl)
+                        startActivity(
+                            this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                context as Activity,
+                                holder.iconContainer!!, "app_icon"
+                            ).toBundle()
+                        )
                     }
                 }
 
@@ -163,11 +171,17 @@ class GamesFragment : Fragment(), ToolbarListener {
             val adapter = AppAdapter(apps, R.layout.item_app_5, coroutineScope)
             adapter.isPageable = false
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(context, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            context as Activity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 
@@ -233,11 +247,17 @@ class GamesFragment : Fragment(), ToolbarListener {
             val adapter = AppAdapter(apps, R.layout.item_app_2, coroutineScope)
             adapter.isPageable = false
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(context, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            context as Activity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 
@@ -301,11 +321,17 @@ class GamesFragment : Fragment(), ToolbarListener {
             val adapter = AppAdapter(apps, R.layout.item_app_2, coroutineScope)
             adapter.isPageable = false
 
-            adapter.onClick = {
+            adapter.onClick = { app, holder ->
                 Intent(context, AppPageActivity::class.java).apply {
-                    putExtra("url", it.link)
-                    putExtra("name", it.name)
-                    startActivity(this)
+                    putExtra("url", app.link)
+                    putExtra("name", app.name)
+                    putExtra("imageUrl", app.imageUrl)
+                    startActivity(
+                        this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            context as Activity,
+                            holder.iconContainer!!, "app_icon"
+                        ).toBundle()
+                    )
                 }
             }
 
@@ -378,6 +404,7 @@ class GamesFragment : Fragment(), ToolbarListener {
     override fun onOffsetChange(toolbarHeight: Int, offset: Int) {
         val bottom = max(toolbarHeight + offset, 0)
         view?.fgTopContainer?.setPadding(0, 0, 0, bottom)
+
     }
 
 }

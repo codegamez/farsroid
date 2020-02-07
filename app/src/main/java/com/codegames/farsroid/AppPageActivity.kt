@@ -40,6 +40,8 @@ class AppPageActivity : AppCompatActivity(), CoroutineScope {
     override val coroutineContext: CoroutineContext
         get() = mJob + Dispatchers.Main
 
+    private var done = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_page)
@@ -51,11 +53,22 @@ class AppPageActivity : AppCompatActivity(), CoroutineScope {
 
         val url = intent?.extras?.getString("url") ?: throw Throwable("set url")
         val name = intent?.extras?.getString("name") ?: throw Throwable("set name")
+        val imageUrl = intent?.extras?.getString("imageUrl") ?: throw Throwable("set image url")
 
         aap_tryAgain.setOnClickListener {
             aap_tryAgain.visibility = View.GONE
             getAppPage(url, name)
         }
+
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(R.drawable.placeholder)
+            .into(aap_icon)
+
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(R.drawable.placeholder)
+            .into(aap_content_icon)
 
         getAppPage(url, name)
 
@@ -135,25 +148,20 @@ class AppPageActivity : AppCompatActivity(), CoroutineScope {
             downloadAdapter.onLongClick = {
                 val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 clipboard.primaryClip = ClipData.newRawUri(app.name, it.second.toUri())
-                Snackbar.make(aap_coordinatorLayout, R.string.file_link_copied, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(
+                    aap_coordinatorLayout,
+                    R.string.file_link_copied,
+                    Snackbar.LENGTH_SHORT
+                ).show()
             }
 
             aap_downloadRecyclerView.itemAnimator = DefaultItemAnimator()
 
             withContext(Dispatchers.Main) {
 
-                Picasso.get()
-                    .load(app.imageUrl)
-                    .placeholder(R.drawable.placeholder)
-                    .into(aap_icon)
-
-                Picasso.get()
-                    .load(app.imageUrl)
-                    .placeholder(R.drawable.placeholder)
-                    .into(aap_content_icon)
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    aap_content_less.text = Html.fromHtml(app.contentLess, Html.FROM_HTML_MODE_COMPACT)
+                    aap_content_less.text =
+                        Html.fromHtml(app.contentLess, Html.FROM_HTML_MODE_COMPACT)
                 } else {
                     @Suppress("DEPRECATION")
                     aap_content_less.text = Html.fromHtml(app.contentLess)
@@ -182,55 +190,13 @@ class AppPageActivity : AppCompatActivity(), CoroutineScope {
 
                 aap_content.isClickable = false
                 aap_content.isLongClickable = false
-                aap_content.loadData(
-                    """
-                    <html>
-                        <head>
-                            <style>
-                                @font-face {
-                                    font-family: 'Samim';
-                                    src: url('file:///android_asset/font/samim_normal.ttf');
-                                    font-weight: normal;
-                                }
-                                @font-face {
-                                    font-family: 'Samim';
-                                    src: url('file:///android_asset/font/samim_bold.ttf');
-                                    font-weight: bold;
-                                }
-
-                                * {
-                                    text-decoration: none;
-                                    font-family: Samim, Arial, serif !important;
-                                }
-
-                                body {
-                                    background-color: #ffffff;
-                                    -webkit-touch-callout: none;
-                                    -webkit-user-select: none;
-                                    -khtml-user-select: none;
-                                    -moz-user-select: none;
-                                    -ms-user-select: none;
-                                    user-select: none;
-                                }
-                                a {
-                                    color: inherit;
-                                    pointer-events: none;
-                                }
-                                img.aligncenter {
-                                    display: block;
-                                    margin: 5px auto;
-                                }
-                                img {
-                                    height: auto;
-                                    max-width: 100% !important;
-                                    border: 0;
-                                    vertical-align: middle;
-                                }
-                            </style>
-                        </head>
-                        <body dir="rtl">${app.content.replace(Regex("width:\\s?\\d+px;?"), "")}</body>
-                    </html>
-                """.trimIndent(), "text/html", "UTF-8"
+                aap_content.loadDataWithBaseURL(
+                    "file:///android_asset/",
+                    detailHtml(app.content),
+                    "text/html",
+                    "UTF-8"
+                    ,
+                    null
                 )
 
                 aap_comment.isSelected = true
@@ -276,7 +242,7 @@ class AppPageActivity : AppCompatActivity(), CoroutineScope {
                     }
                 }
 
-                aap_scrollView.visibility = View.VISIBLE
+                done = true
                 aap_progressBar.hide()
             }
 
@@ -322,6 +288,12 @@ class AppPageActivity : AppCompatActivity(), CoroutineScope {
             searchView?.isIconified == false -> searchView?.onActionViewCollapsed()
             else -> super.onBackPressed()
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        // for a weired bug
+        aap_progressBar.takeIf { done }?.hide()
     }
 
     override fun onDestroy() {

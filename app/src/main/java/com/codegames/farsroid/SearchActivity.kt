@@ -24,7 +24,7 @@ import kotlinx.coroutines.*
 import java.net.UnknownHostException
 import kotlin.coroutines.CoroutineContext
 import android.provider.SearchRecentSuggestions
-
+import androidx.core.app.ActivityOptionsCompat
 
 
 class SearchActivity : AppCompatActivity(), CoroutineScope {
@@ -106,11 +106,17 @@ class SearchActivity : AppCompatActivity(), CoroutineScope {
                     return@fetchData data
                 }
 
-                adapter?.onClick = {
+                adapter?.onClick = { app, holder ->
                     Intent(this@SearchActivity, AppPageActivity::class.java).apply {
-                        putExtra("url", it.link)
-                        putExtra("name", it.name)
-                        startActivity(this)
+                        putExtra("url", app.link)
+                        putExtra("name", app.name)
+                        putExtra("imageUrl", app.imageUrl)
+                        startActivity(
+                            this, ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                this@SearchActivity,
+                                holder.iconContainer!!, "app_icon"
+                            ).toBundle()
+                        )
                     }
                 }
 

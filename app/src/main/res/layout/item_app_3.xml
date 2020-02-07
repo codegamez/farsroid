@@ -17,8 +17,10 @@
             android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
+                android:id="@+id/ia_icon_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:transitionName="app_icon"
                 app:cardCornerRadius="@dimen/space_lg">
 
             <lib.codegames.widget.ImageViewCG

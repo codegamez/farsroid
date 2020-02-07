@@ -19,7 +19,7 @@ class AppAdapter(val appList: MutableList<App>, private val layout: Int, val cor
     RecyclerView.Adapter<AppAdapter.ViewHolder>() {
 
     var fetchData: ((page: Int) -> Array<App>?)? = null
-    var onClick: ((app: App) -> Unit)? = null
+    var onClick: ((app: App, holder: ViewHolder) -> Unit)? = null
 
     var isPageable = false
 
@@ -29,6 +29,7 @@ class AppAdapter(val appList: MutableList<App>, private val layout: Int, val cor
     private var loading = false
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val iconContainer: View? = itemView.findViewById(R.id.ia_icon_container)
         val ivIcon: ImageView? = itemView.findViewById(R.id.ia_icon)
         val tvName: TextView? = itemView.findViewById(R.id.ia_name)
         val tvSize: TextView? = itemView.findViewById(R.id.ia_size)
@@ -40,7 +41,7 @@ class AppAdapter(val appList: MutableList<App>, private val layout: Int, val cor
         init {
 
             itemView.setOnClickListener {
-                onClick?.invoke(appList[adapterPosition])
+                onClick?.invoke(appList[adapterPosition], this)
             }
 
         }

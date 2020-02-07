@@ -11,6 +11,7 @@
 
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/ia_icon_container"
             android:layout_margin="@dimen/space_md"
             android:layout_width="@dimen/app_icon_size"
             android:layout_height="@dimen/app_icon_size"
