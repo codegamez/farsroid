@@ -28,18 +28,4 @@
    <img src="site/images/img3.png" width="120" height="auto" style="margin: .5rem">
    <img src="site/images/img4.png" width="120" height="auto" style="margin: .5rem">
 
-   <br>
-
-   <h1>
-      دانلود اپ
-   </h1>
-
-   <a href="https://shahab-yousefi.github.io/farsroid/">
-      صفحه دانلود اپ
-   </a>
-
-   <p>
-      این برنامه کاملآ غیر رسمی بوده و هیچ ارتباطی با اعضای سایت فارسروید ندارد.
-   </p>
-
 </div>
